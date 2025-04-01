@@ -9,7 +9,7 @@
 
 // Get computer choice
 function getComputerChoice () {
-    computerChoice = Math.floor(Math.random() * 3);
+    let computerChoice = Math.floor(Math.random() * 3);
 
     if (computerChoice == 0) {
         return console.log("rock");
@@ -23,6 +23,12 @@ function getComputerChoice () {
 getComputerChoice();
 
 // Get human choice
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, Paper, or Scissors?");
+    return humanChoice;
+}
+
+console.log(getHumanChoice());
 
 // Keep track the score
 
