@@ -27,14 +27,14 @@ function getComputerChoice () {
 
 // Get human choice
 function getHumanChoice() {
-    let humanChoice = prompt("Rock, Paper, or Scissors?");
+    let humanChoice = window.prompt("Rock, Paper, or Scissors?");
     return humanChoice.toLowerCase();
 }
 
 
 let result = ""; // Store the result of the game (Win / Lose)
 
-// Play the game
+// Play by round
 function playRound(humanChoice, computerChoice) {
 
     // Print computer and human selected choice
@@ -77,16 +77,25 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 
-    return result;
+    return console.log(result);
 }
 
-// Store choices
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
 
-console.log(playRound(humanSelection, computerSelection));
+// Play the game 5 times
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        console.log(`Round ${i + 1}`);
 
-// Print the score
+        const computerSelection = getComputerChoice();
+        const humanSelection = getHumanChoice();
+
+        playRound(humanSelection, computerSelection);
+    }
+}
+
+playGame();
+
+// Print the Final score
 console.log(`Score:
     Computer = ${computerScore}
     Human = ${humanScore}`);
