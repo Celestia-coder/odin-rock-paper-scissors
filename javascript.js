@@ -34,22 +34,21 @@ function getHumanChoice() {
     return humanChoice.toLowerCase();
 }
 
-
-let result = ""; // Store the result of the game (Win / Lose)
-
 // Play by round
 function playRound(humanChoice, computerChoice) {
 
     // Print computer and human selected choice
-    console.log("Computer: " + computerChoice);
-    console.log("Human: " + humanChoice);
+    console.log(`Computer: ${computerChoice}`);
+    console.log(`Human: ${humanChoice}`);
 
-    if (humanChoice == computerChoice) {
-        result = "DRAW!"; // Both pick the same choice
+    let result = ""; // Store the result of the game (Win / Lose)
+
+    if (humanChoice === computerChoice) {
+        result = "DRAW!"; // Both selected the same choice
     } else {
         switch(humanChoice) {
             case "rock":
-                if (computerChoice == "paper") {
+                if (computerChoice === "paper") {
                     computerScore++;
                     result = "LOSE! Paper beats rock";
                 } else {
@@ -59,7 +58,7 @@ function playRound(humanChoice, computerChoice) {
                 break;
 
             case "paper":
-                if (computerChoice == "scissors") {
+                if (computerChoice === "scissors") {
                     computerScore++;
                     result = "LOSE! Scissors beats paper";
                 } else {
@@ -69,7 +68,7 @@ function playRound(humanChoice, computerChoice) {
                 break;
 
             case "scissors":
-                if (computerChoice == "rock") {
+                if (computerChoice === "rock") {
                     computerScore++;
                     result = "LOSE! Rock beats scissors";
                 } else {
@@ -77,6 +76,9 @@ function playRound(humanChoice, computerChoice) {
                     result = "WIN! Scissors beats paper";
                 }
                 break;
+            
+            default:
+                result = "Invalid choice. Please enter rock, paper, or scissors.";
         }
     }
 
